@@ -1,0 +1,237 @@
+Rapport d'analyse - 235 alertes détectées
+==================================================
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 300) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United Kingdom of Great Britain and Ireland (Année 1914) : 45069 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 1914) : 70417 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Netherlands Indies (Année 1914) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1914) : 128343 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark (Année 1914) : 44680 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Empire of Japan (Année 1914) : 93148 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russian Empire (Année 1914) : 87419 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Malaysian Islamic states (Année 1492) : 37486 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Siberians (Année 1492) : 40025 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Inuit (Année 1492) : 74221 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Kwikwetlem (Année 1492) : 95864 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1492) : 37781 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea (Année 1492) : 34022 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dutch East Indies (Année 1700) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Australian aboriginal hunter-gatherers (Année 1700) : 43786 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Ottoman Empire (Année 1700) : 43373 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark-Norway (Année 1700) : 32871 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Sweden (Année 1700) : 45104 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tsardom of Muscovy (Année 1700) : 61737 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea (Année 1700) : 35600 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1700) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tsardom of Muscovy (Année 1530) : 33307 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Sweden (Année 1530) : 52999 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark-Norway (Année 1530) : 34678 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1530) : 37781 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Ottoman Empire (Année 1530) : 43292 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Imperial Japan (Année 1880) : 35724 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United Kingdom of Great Britain and Ireland (Année 1880) : 48752 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Netherlands Indies (Année 1880) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1880) : 128187 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Sweden–Norway (Année 1880) : 32459 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States of America (Année 1880) : 72895 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russian Empire (Année 1880) : 143685 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea (Année 1880) : 35624 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -1000) : 99573 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année -1000) : 57550 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 500) : 51545 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 500) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Austronesian (Année 500) : 44098 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 500) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -323) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année -323) : 56606 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 1100) : 43056 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dorset (Année 1100) : 64772 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 1100) : 56317 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1100) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Antarctica (Année 800) : 40053 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 800) : 42964 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dorset (Année 800) : 64772 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 800) : 56310 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Roman Empire (Année 200) : 66472 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 200) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Roman Empire (Année -1) : 61130 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -1) : 99571 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dutch East Indies (Année 1938) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1938) : 120556 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 1938) : 74820 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark (Année 1938) : 43519 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] USSR (Année 1938) : 90388 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Empire of Japan (Année 1938) : 99426 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -100) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Australian aboriginal hunter-gatherers (Année 1600) : 43786 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tsardom of Muscovy (Année 1600) : 37805 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark-Norway (Année 1600) : 39256 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1600) : 37781 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Ottoman Empire (Année 1600) : 43364 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Western Roman Empire (Année 400) : 32217 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern Roman Empire (Année 400) : 32530 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 400) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -700) : 99573 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année -700) : 57550 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 1000) : 44010 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dorset (Année 1000) : 64772 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 1000) : 56306 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1000) : 33731 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dutch East Indies (Année 1930) : 36939 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1930) : 120260 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] USSR (Année 1930) : 90250 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 1930) : 73934 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Empire of Japan (Année 1930) : 94918 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark (Année 1930) : 43869 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dutch East Indies (Année 1920) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1920) : 120565 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] USSR (Année 1920) : 225299 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 1920) : 74273 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Empire of Japan (Année 1920) : 94038 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark (Année 1920) : 44520 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Ottoman Empire (Année 1815) : 43957 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United Kingdom (Année 1815) : 34771 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1815) : 128221 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Antarctica (Année 1815) : 39120 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Vice-Royalty of New Spain (Année 1815) : 508324 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russian Empire (Année 1815) : 45994 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 1815) : 527462 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea (Année 1815) : 35606 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark (Année 1815) : 46275 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russian Empire (Année 1815) : 73902 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1815) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Antarctica (Année 900) : 40053 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 900) : 43018 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dorset (Année 900) : 64772 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 900) : 56317 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Finno-Ugric taiga hunter-gatherers (Année 900) : 81383 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Silla (Année 900) : 32226 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Ottoman Empire (Année 1800) : 48600 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dutch East Indies (Année 1800) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Rupert's Land (Année 1800) : 36579 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States of America (Année 1800) : 37877 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Australian aboriginal hunter-gatherers (Année 1800) : 43786 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Sweden (Année 1800) : 43782 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russian Empire (Année 1800) : 97525 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark-Norway (Année 1800) : 58878 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea (Année 1800) : 35605 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1800) : 37781 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Thule (Année 1279) : 56275 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Siberians (Année 1279) : 42565 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 1279) : 56315 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1279) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Great Khanate (Année 1279) : 50853 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dutch East Indies (Année 1650) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Australian aboriginal hunter-gatherers (Année 1650) : 43786 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Ottoman Empire (Année 1650) : 61080 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tsardom of Muscovy (Année 1650) : 53348 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea (Année 1650) : 35595 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Sweden (Année 1650) : 82035 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1650) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Roman Empire (Année 100) : 64582 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 100) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Malaysian Islamic states (Année 1500) : 37486 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Kalmar Union (Année 1500) : 88002 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Thule (Année 1500) : 67835 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Siberians (Année 1500) : 33009 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1500) : 37781 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Finno-Ugric taiga hunter-gatherers (Année -200) : 34794 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -200) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année -200) : 57378 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tungus (Année -200) : 36871 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 2010) : 70417 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] China (Année 2010) : 34124 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Indonesia (Année 2010) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 2010) : 128343 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russia (Année 2010) : 104477 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Italy (Année 2010) : 67553 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea, Republic of (Année 2010) : 33433 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 2000) : 70417 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] China (Année 2000) : 34124 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Indonesia (Année 2000) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 2000) : 128343 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russia (Année 2000) : 104477 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Italy (Année 2000) : 67553 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea, Republic of (Année 2000) : 33433 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 1960) : 70414 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Indonesia (Année 1960) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1960) : 128338 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Antarctica (Année 1960) : 39884 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] USSR (Année 1960) : 100288 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea, Republic of (Année 1960) : 33433 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 700) : 99652 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 700) : 56305 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern Roman Empire (Année 700) : 35853 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 1994) : 70417 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] China (Année 1994) : 34124 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Indonesia (Année 1994) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1994) : 128343 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Italy (Année 1994) : 67553 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russia (Année 1994) : 126916 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea, Republic of (Année 1994) : 33433 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Thule (Année 1300) : 56316 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Siberians (Année 1300) : 42565 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 1300) : 56315 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1300) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Great Khanate (Année 1300) : 50841 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année -400) : 56601 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -400) : 99609 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Austronesians (Année -5000) : 112731 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Kelteminar (Année -5000) : 37013 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Jōmon (Année -5000) : 35638 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Khoiasan (Année -5000) : 51641 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Bantu (Année -5000) : 101639 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Aboriginal tribes (Année -5000) : 101141 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE]  (Année -5000) : 47909 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Funnel-Beaker (Année -5000) : 87432 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -2000) : 85899 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Archaic Amerindian hunter-gatherers (Année -2000) : 154675 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Koreans (Année -2000) : 36194 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Imperial Japan (Année 1900) : 35724 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United Kingdom of Great Britain and Ireland (Année 1900) : 48752 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Netherlands Indies (Année 1900) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1900) : 128187 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States of America (Année 1900) : 72895 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea (Année 1900) : 35594 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russian Empire (Année 1900) : 170286 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -1500) : 99573 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année -1500) : 57516 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Thule (Année 1400) : 56274 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Siberians (Année 1400) : 42565 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 1400) : 56315 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Great Khanate (Année 1400) : 47443 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Kalmar Union (Année 1400) : 86474 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1400) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -300) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année -300) : 56606 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Ottoman Empire (Année 1715) : 49634 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dutch East Indies (Année 1715) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Australian aboriginal hunter-gatherers (Année 1715) : 43786 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tsardom of Muscovy (Année 1715) : 81990 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Sweden (Année 1715) : 64624 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1715) : 37781 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 600) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 600) : 56305 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern Roman Empire (Année 600) : 62443 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 600) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Ottoman Empire (Année 1783) : 48600 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dutch East Indies (Année 1783) : 37874 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Rupert's Land (Année 1783) : 36579 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States of America (Année 1783) : 37891 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Australian aboriginal hunter-gatherers (Année 1783) : 43786 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Sweden (Année 1783) : 43741 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark-Norway (Année 1783) : 70850 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Russian Empire (Année 1783) : 121443 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Korea (Année 1783) : 35605 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1783) : 37781 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Denmark (Année 1945) : 33960 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Canada (Année 1945) : 128313 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] USSR (Année 1945) : 122671 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] United States (Année 1945) : 74289 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année 1200) : 43056 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Dorset (Année 1200) : 64772 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année 1200) : 56317 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Goryeo (Année 1200) : 34364 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Tuʻi Tonga Empire (Année 1200) : 37757 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Arctic marine mammal hunters (Année -500) : 99570 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Finno-Ugric taiga hunter-gatherers (Année -500) : 34716 caractères. Risque de coupure dans Excel.
+⚠️ [ALERTE TAILLE] Eastern North Amercian hunter-gatherers (Année -500) : 52696 caractères. Risque de coupure dans Excel.

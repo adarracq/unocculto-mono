@@ -1,0 +1,89 @@
+# ===========================
+# 1. GÉNÉRAL & SYSTÈME
+# ===========================
+# Mac & Windows
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs généraux
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editeurs & IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ===========================
+# 2. DÉPENDANCES & ENVIRONNEMENT
+# ===========================
+# Ignore node_modules dans tous les dossiers (racine, FRONT, BACK)
+**/node_modules/
+
+# Variables d'environnement (TRÈS IMPORTANT : Ne jamais commit ses secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# ===========================
+# 3. BACKEND (Node.js) - Dossier BACK/
+# ===========================
+# Builds de production (si tu utilises TypeScript ou Babel)
+BACK/dist/
+BACK/build/
+
+# Rapports de couverture de tests
+BACK/coverage/
+
+# ===========================
+# 4. FRONTEND (React Native) - Dossier FRONT/
+# ===========================
+
+# --- React Native Général ---
+FRONT/.expo/
+FRONT/web-build/
+FRONT/metro-bundler-store/
+
+# --- Android ---
+# Build et cache
+FRONT/android/build/
+FRONT/android/app/build/
+FRONT/android/.gradle/
+
+# Configuration locale (contient souvent le chemin du SDK)
+FRONT/android/local.properties
+
+# Clés de signature (Ne jamais commit !)
+FRONT/android/*.keystore
+FRONT/android/*.jks
+
+# --- iOS ---
+# Dépendances CocoaPods
+FRONT/ios/Pods/
+
+# Build et cache Xcode
+FRONT/ios/build/
+FRONT/ios/DerivedData/
+FRONT/ios/*.xcworkspace
+!FRONT/ios/*.xcworkspace/contents.xcworkspacedata
+
+# Fichiers générés par Xcode
+FRONT/ios/*.mode1v3
+FRONT/ios/*.mode2v3
+FRONT/ios/*.mov*
+FRONT/ios/*.pbuser
+FRONT/ios/*.perspectivev3
+FRONT/ios/*.xccheckout
+FRONT/ios/*.xsd
+
+# Fastlane (Optionnel, si tu l'utilises)
+FRONT/fastlane/report.xml
+FRONT/fastlane/screenshots
