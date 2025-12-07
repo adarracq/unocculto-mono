@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Unocculto",
+    "slug": "Unocculto",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./app/assets/images/icon_earth.png",
+    "scheme": "unocculto",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.antoinecd.Unocculto"
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.antoinecd.Unocculto"
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./app/assets/images/icon_earth.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./app/assets/images/icon_earth.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ],
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsImpl": "mapbox",
+          "downloadToken": "sk.eyJ1IjoiYW50b2luZWNkIiwiYSI6ImNtaW9hcHdzOTFyNjUzbXI0NmlsaW44NmEifQ.zD21anMv9EVOhz_HmZ7Urw"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "5ec7051b-5cd3-48b5-9537-ded44356176b"
+      }
+    }
+  }
+}
