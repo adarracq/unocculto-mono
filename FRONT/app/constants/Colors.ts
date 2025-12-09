@@ -13,9 +13,12 @@ export default {
     lightYellow: '#F6EB61',
     lightOrange: '#FFE5B4',
 
+    // Couleur néon très visible
+    cyan: '#00FFFF',
+
     white: '#FFFFFF',
     black: '#2A2A2B',
-    blackTransparent: 'rgba(42, 42, 43, 0.8)',
+    realBlack: '#000000',
     red: '#F03F5F',
     darkGrey: '#717279',
     darkBlue: '#1A1D21',

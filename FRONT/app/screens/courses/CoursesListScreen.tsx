@@ -1,4 +1,3 @@
-import LoadingScreen from '@/app/components/molecules/LoadingScreen';
 import Colors from '@/app/constants/Colors';
 import { useApi } from '@/app/hooks/useApi';
 import Course from '@/app/models/Course';
@@ -6,7 +5,7 @@ import { CoursesNavParams } from '@/app/navigations/CoursesNav';
 import { courseService } from '@/app/services/course.service';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NativeStackScreenProps } from 'react-native-screens/lib/typescript/native-stack/types';
 import CourseOnList from './components/CourseOnList';
@@ -39,47 +38,48 @@ export default function CoursesListScreen({ navigation, route }: Props) {
 
     return (
         <LinearGradient
-            colors={[Colors.mainDark, Colors.main, Colors.mainLight]}
-            style={styles.container}>
+            // Assure-toi que ces couleurs créent un beau dégradé
+            colors={[Colors.darkGrey, Colors.realBlack]}
+            style={styles.container}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+        >
             <SmallProfileHeader user={route.params.user} />
-            <ScrollView contentContainerStyle={{
-                padding: 20,
-                gap: 40,
-            }}>
-                {
-                    courses.map((courseItem, index) => (
-                        <CourseOnList
-                            key={index}
-                            course={courseItem}
-                            isUnlocked={true}
-                            isRight={index % 2 === 0}
-                            onPress={() => {
-                                navigation.navigate('ChaptersList', {
-                                    course: courseItem,
-                                    user: route.params.user,
-                                });
-                            }}
-                        />
-                    ))
-                }
-                {/*<Button
-                    title="Create Courses in BDD"
-                    backgroundColor={Colors.white}
-                    onPress={async () => {
-                        await createCoursesInBDD();
-                    }}
-                />*/}
+
+            <ScrollView
+                contentContainerStyle={styles.scrollContent}
+                showsVerticalScrollIndicator={false}
+            >
+
+                {courses.map((courseItem, index) => (
+                    <CourseOnList
+                        key={courseItem._id || index} // Préfère _id si disponible
+                        course={courseItem}
+                        isRight={index % 2 !== 0} // Alterne Gauche / Droite
+                        isLast={index === courses.length - 1} // Pour cacher la ligne du dernier
+                        onPress={() => {
+                            navigation.navigate('ChaptersList', {
+                                course: courseItem,
+                                user: route.params.user,
+                            });
+                        }}
+                    />
+                ))}
+
+                {/* Espace en bas pour le scroll */}
+                <View style={{ height: 40 }} />
             </ScrollView>
-            {
-                loadingCourses && <LoadingScreen />
-            }
         </LinearGradient >
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        display: 'flex',
         flex: 1,
+    },
+    scrollContent: {
+        paddingHorizontal: 0, // On gère le padding dans les items
+        paddingTop: 20,
+        gap: 20, // Espace vertical entre les cartes
     },
 })

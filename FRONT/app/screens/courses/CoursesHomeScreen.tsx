@@ -61,13 +61,6 @@ export default function CoursesHomeScreen({ navigation, route }: Props) {
         refreshUserData();
     }, [isFocused]);
 
-    // Affichage de l'écran de chargement
-    if (userApi.loading) {
-        return <View style={styles.container}>
-            <LoadingScreen />
-        </View>;
-    }
-
     // Vérification des données utilisateur
     if (!userApi.data) {
         return (
@@ -83,18 +76,21 @@ export default function CoursesHomeScreen({ navigation, route }: Props) {
 
     return userApi.data && (
         <LinearGradient
-            colors={[Colors.mainDark, Colors.main, Colors.mainLight]}
+            colors={[Colors.black, Colors.black]}
             style={styles.container}>
+            {
+                (userApi.loading || loading) && <LoadingScreen />
+            }
             <ProfileHeader
                 user={userApi.data}
                 onChangeAvatar={handleChangeAvatar}
             />
-            <View style={{ gap: 32 }}>
+            <View style={{ gap: 32, marginBottom: 40, paddingHorizontal: 20 }}>
                 <ButtonGradient
                     title="Voyage complet"
                     onPress={() => navigation.navigate('CoursesList', { user: userApi.data! })}
-                    color1={Colors.mainDark}
-                    color2={Colors.mainLight}
+                    accentColor={Colors.main}
+                    //color2={Colors.black}
                     icon={'journey'}
                     iconColor={Colors.white}
                     textColor={Colors.white}
@@ -103,21 +99,21 @@ export default function CoursesHomeScreen({ navigation, route }: Props) {
                 <ButtonGradient
                     title="Exploration libre"
                     onPress={() => navigation.navigate('CoursesList', { user: userApi.data! })}
-                    color1={Colors.mainDark}
-                    color2={Colors.mainLight}
+                    accentColor={Colors.lightGrey}
+                    //color2={Colors.black}
                     icon={'rocket'}
                     iconColor={Colors.white}
                     textColor={Colors.white}
                 />
-                <ButtonGradient
+                {<ButtonGradient
                     title="DEV"
                     onPress={() => navigation.navigate('Dev')}
-                    color1={Colors.mainDark}
-                    color2={Colors.mainLight}
+                    accentColor={Colors.lightGrey}
+                    //color2={Colors.black}
                     icon={'rocket'}
                     iconColor={Colors.white}
                     textColor={Colors.white}
-                />
+                />}
             </View>
             <View></View>
 
@@ -130,7 +126,5 @@ const styles = StyleSheet.create({
         display: 'flex',
         justifyContent: 'space-between',
         flex: 1,
-        padding: 20,
-        paddingTop: 50,
     },
 })

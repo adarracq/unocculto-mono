@@ -68,6 +68,7 @@ export default function OnBoardingScreen({ navigation, route }: Props) {
                         <View style={{
                             backgroundColor: Colors.white,
                             borderRadius: 16,
+                            borderCurve: 'continuous',
                             flexDirection: 'row',
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -101,7 +102,8 @@ export default function OnBoardingScreen({ navigation, route }: Props) {
                 backgroundColor: 'rgba(255, 255, 255, 0.3)',
                 justifyContent: 'center',
                 alignItems: 'center',
-                borderRadius: 16
+                borderRadius: 16,
+                borderCurve: 'continuous',
             }}>
                 <Image source={require('../../assets/icons/arrow-right.png')} style={{ width: 30, resizeMode: 'contain', }} />
             </View>

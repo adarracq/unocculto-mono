@@ -61,7 +61,7 @@ export default function SetThemesScreen({ navigation, route }: Props) {
             colors={[Colors.mainDark, Colors.main, Colors.mainLight]} style={styles.container}>
             <BackArrow onPress={() => navigation.goBack()} />
             <View style={{ gap: 24 }}>
-                <ProgressBar progress={3} total={4} title="Thèmes" width={80}
+                <ProgressBar progress={4} total={5} title="Thèmes" width={80}
                 />
                 <Title0 title={'Quel(s) thème(s) vous intéressent ?'} isLeft style={{ padding: 20 }} />
             </View>

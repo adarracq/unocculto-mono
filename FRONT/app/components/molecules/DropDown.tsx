@@ -1,13 +1,13 @@
-import { View, ViewStyle, TouchableOpacity, Image, Dimensions } from 'react-native'
-import React, { useRef } from 'react'
-import Colors from '../../constants/Colors';
-import SmallText from '../atoms/SmallText';
-import BodyText from '../atoms/BodyText';
 import { functions } from '@/app/utils/Functions';
+import React, { useRef } from 'react';
+import { Image, TouchableOpacity, View, ViewStyle } from 'react-native';
 import ActionSheet, { ActionSheetRef } from "react-native-actions-sheet";
-import SimpleRadioButton from './SimpleRadioButton';
-import SimpleCheckbox from './SimpleCheckbox';
 import { ScrollView } from 'react-native-gesture-handler';
+import Colors from '../../constants/Colors';
+import BodyText from '../atoms/BodyText';
+import SmallText from '../atoms/SmallText';
+import SimpleCheckbox from './SimpleCheckbox';
+import SimpleRadioButton from './SimpleRadioButton';
 
 type DropDownProps = {
     placeholder: string;
@@ -33,7 +33,7 @@ export default function DropDown(props: DropDownProps) {
                     borderColor: Colors.lightGrey,
                     borderWidth: 1,
                     borderRadius: 16,
-
+                    borderCurve: 'continuous',
                     backgroundColor: Colors.white,
                 }, props.style]}
             >

@@ -36,44 +36,28 @@ exports.getByCourseID = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
     try {
-        const { number, name, labelFR, labelEN, base64Icon, dateStart, dateEnd, courseID, courseNB } = req.body;
-        const newChapter = new Chapter({
-            number,
-            name,
-            labelFR,
-            labelEN,
-            base64Icon,
-            dateStart,
-            dateEnd,
-            courseID,
-            courseNB
-        });
-        // If theme exists we replace it
-        const existingChapter = await Chapter.findOne({ name });
+        // first delete _id if any
+        delete req.body._id;
+        const newChapter = new Chapter({ ...req.body });
+
+        const existingChapter = await Chapter.findOne({ name: newChapter.name });
         if (existingChapter) {
-            existingChapter.number = number;
-            existingChapter.labelFR = labelFR;
-            existingChapter.labelEN = labelEN;
-            existingChapter.base64Icon = base64Icon;
-            existingChapter.dateStart = dateStart;
-            existingChapter.dateEnd = dateEnd;
-            existingChapter.courseID = courseID;
-            existingChapter.courseNB = courseNB;
-            const updatedChapter = await existingChapter.save();
-            return res.status(200).json(updatedChapter);
+            const updatedChapter = await Chapter.findOneAndUpdate(
+                { name: newChapter.name },
+                { ...req.body },
+                { new: true }
+            );
+            res.status(200).json(updatedChapter);
         }
         else {
-            // Otherwise we create a new one
             const savedChapter = await newChapter.save();
-            return res.status(201).json(savedChapter);
+            res.status(201).json(savedChapter);
         }
-
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Erreur serveur' });
     }
 };
-
 
 exports.getChapterStats = async (req, res, next) => {
     try {
@@ -154,8 +138,6 @@ exports.getChapterStats = async (req, res, next) => {
             }
         });
 
-        // 7. On renvoie le résultat
-        console.log("Stats générées pour le chapitre " + chapterID);
         return res.status(200).json(stats);
 
     } catch (error) {

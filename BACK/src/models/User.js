@@ -9,11 +9,11 @@ const userSchema = mongoose.Schema({
     unlockedAvatarIDs: { type: [Number], required: false, default: [0] },
     expoPushToken: { type: String, required: false },
     themes: { type: [String], required: false, default: [] },
-    gems: { type: Number, required: false, default: 0 },
-    points: { type: Number, required: false, default: 0 },
+    lifes: { type: Number, required: false, default: 3 },
+    coins: { type: Number, required: false, default: 0 },
     dayStreak: { type: Number, required: false, default: 0 },
     lastCourseDate: { type: Date, required: false },
-    POIsCompleted: { type: [String], required: false, default: [] },
+    chaptersCompleted: { type: [mongoose.Schema.Types.ObjectId], ref: 'POI', index: true },
 });
 
 userSchema.plugin(uniqueValidator);

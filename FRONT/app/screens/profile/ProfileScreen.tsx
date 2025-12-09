@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
     },
     menuContainer: {
         borderRadius: 16,
+        borderCurve: 'continuous',
         borderColor: Colors.lightGrey,
         borderWidth: 1,
         backgroundColor: Colors.white,

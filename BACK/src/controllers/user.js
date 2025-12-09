@@ -44,7 +44,7 @@ exports.loginOrSignup = (req, res, next) => {
             // if user exists, send email code and add it to the user
             else {
                 const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
-                if (user.verified && user.pseudo) {
+                if (user.pseudo) {
                     res.status(201).json({ message: 'login', token: token });
                 }
                 else {
@@ -169,6 +169,54 @@ exports.verifyPseudo = (req, res, next) => {
             }
             else {
                 return res.status(200).json({ available: true });
+            }
+        })
+        .catch(error => res.status(500).json({ error: 'Internal Error' }));
+}
+
+exports.addCompletedChapter = (req, res, next) => {
+    const chapterId = req.body.chapterId;
+    const userId = req.auth.userId;
+    const nbQuestions = req.body.nbQuestions;
+
+    User.findOne({ _id: userId })
+        .then(user => {
+            if (!user) {
+                return res.status(401).json({ error: 'Not Found' });
+            }
+            // add poiId to POIsCompleted if not already present
+            if (!user.chaptersCompleted.includes(chapterId)) {
+                user.chaptersCompleted.push(chapterId);
+                user.coins += nbQuestions;
+                user.save()
+                    .then(() => res.status(200).json({ message: 'Chapter added to completed list' }))
+                    .catch(error => res.status(400).json({ error: 'Not Found' }));
+            }
+            else {
+                res.status(200).json({ message: 'Chapter already in completed list' });
+            }
+        })
+        .catch(error => res.status(500).json({ error: 'Internal Error' }));
+}
+
+exports.loseLife = (req, res, next) => {
+    const userId = req.auth.userId;
+
+    User.findOne({ _id: userId })
+        .then(user => {
+            if (!user) {
+                return res.status(401).json({ error: 'Not Found' });
+            }
+            // decrease lifes by 1, but not below 0
+            console.log("User lifes before losing life: " + user.lifes);
+            if (user.lifes > 0) {
+                user.lifes -= 1;
+                user.save()
+                    .then(() => res.status(200).json({ message: 'Life lost', lifes: user.lifes }))
+                    .catch(error => res.status(400).json({ error: 'Not Found' }));
+            }
+            else {
+                res.status(200).json({ message: 'No lifes left', lifes: user.lifes });
             }
         })
         .catch(error => res.status(500).json({ error: 'Internal Error' }));

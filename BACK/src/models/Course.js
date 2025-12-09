@@ -6,6 +6,8 @@ const courseSchema = mongoose.Schema({
     name: { type: String, required: true, unique: true },
     labelFR: { type: String, required: true },
     labelEN: { type: String, required: true },
+    descriptionFR: { type: String, required: true },
+    descriptionEN: { type: String, required: true },
     base64Icon: { type: String, required: true },
 });
 

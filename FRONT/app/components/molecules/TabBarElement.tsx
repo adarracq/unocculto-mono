@@ -61,6 +61,7 @@ export default function TabBarElement(props: TabBarElementProps) {
                     width: 20,
                     height: 20,
                     borderRadius: 10,
+                    borderCurve: 'continuous',
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}>

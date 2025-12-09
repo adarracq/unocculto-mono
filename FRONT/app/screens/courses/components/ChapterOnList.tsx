@@ -1,140 +1,168 @@
 import Title1 from '@/app/components/atoms/Title1';
-import Title2 from '@/app/components/atoms/Title2';
 import Colors from '@/app/constants/Colors';
 import Chapter from '@/app/models/Chapter';
 import { functions } from '@/app/utils/Functions';
 import React, { useEffect, useRef } from 'react';
-import { Animated, Easing, StyleSheet, TouchableOpacity, View } from 'react-native';
-import * as Progress from 'react-native-progress';
-
+import { Animated, Easing, Pressable, StyleSheet, View } from 'react-native';
 
 type Props = {
     chapter: Chapter;
-    percentage: number;
     isUnlocked: boolean;
     bumping?: boolean;
+    isRight?: boolean;
     onPress: () => void;
 }
+
 export default function ChapterOnList(props: Props) {
 
     const spinValue = useRef(new Animated.Value(0)).current;
     const scaleAnim = useRef(new Animated.Value(1)).current;
+    const pressScaleValue = useRef(new Animated.Value(1)).current;
+
+    // Animation de press
+    const handlePressIn = () => {
+        Animated.spring(pressScaleValue, {
+            toValue: 0.95,
+            useNativeDriver: true,
+            speed: 20,
+        }).start();
+    };
+
+    const handlePressOut = () => {
+        Animated.spring(pressScaleValue, {
+            toValue: 1,
+            useNativeDriver: true,
+            speed: 20,
+        }).start();
+    };
 
     useEffect(() => {
-        // 2. Définir l'animation
-        const startSpinning = () => {
-            spinValue.setValue(0); // Réinitialise à 0 au début de chaque boucle
+        if (props.bumping) {
+            // Rotation lente de l'anneau extérieur (optionnel)
             Animated.loop(
                 Animated.timing(spinValue, {
-                    toValue: 1,             // Va de 0 à 1 (soit 0% à 100% du tour)
-                    duration: 10000,         // Durée d'un tour complet en ms (ici 3 secondes)
-                    easing: Easing.linear,  // Vitesse constante (important pour que ça tourne rond)
-                    useNativeDriver: true,  // INDISPENSABLE pour la fluidité sur mobile
+                    toValue: 1,
+                    duration: 10000,
+                    easing: Easing.linear,
+                    useNativeDriver: true,
                 })
             ).start();
-        };
 
-        startSpinning();
-    }, [spinValue]); // Se lance au montage du composant
+            // Effet de pulsation (Battement de coeur)
+            Animated.loop(
+                Animated.sequence([
+                    Animated.timing(scaleAnim, {
+                        toValue: 1.1,
+                        duration: 800,
+                        easing: Easing.inOut(Easing.ease),
+                        useNativeDriver: true,
+                    }),
+                    Animated.timing(scaleAnim, {
+                        toValue: 1,
+                        duration: 800,
+                        easing: Easing.inOut(Easing.ease),
+                        useNativeDriver: true,
+                    })
+                ])
+            ).start();
+        } else {
+            scaleAnim.setValue(1); // Reset si plus bumping
+        }
+    }, [props.bumping]);
 
-
-
-    // 3. Interpoler la valeur : transformer le 0->1 en degrés '0deg'->'360deg'
     const spin = spinValue.interpolate({
         inputRange: [0, 1],
         outputRange: ['0deg', '360deg'],
     });
 
-    useEffect(() => {
-        // 2. On définit une séquence : Grossir (1.1) puis Revenir à la normale (1)
-        // On utilise 'timing' avec 'Easing' pour un mouvement de respiration fluide.
-        const pulseSequence = Animated.sequence([
-            // Phase 1 : Grossir
-            Animated.timing(scaleAnim, {
-                toValue: 1.05,   // Grossit de 8% (ajustez selon l'intensité voulue)
-                duration: 1000,   // Durée de la montée (ms)
-                easing: Easing.inOut(Easing.ease), // Accélération/décélération douces
-                useNativeDriver: true,
-            }),
-            // Phase 2 : Rapetisser
-            Animated.timing(scaleAnim, {
-                toValue: 1,      // Revient à la taille de départ
-                duration: 1000,   // Durée de la descente
-                easing: Easing.inOut(Easing.ease),
-                useNativeDriver: true,
-            })
-        ]);
-
-        // 3. On lance cette séquence en boucle infinie (-1 signifie infini pour certaines libs, mais loop() suffit ici)
-        Animated.loop(pulseSequence).start();
-
-    }, [scaleAnim]);
-
-
     return (
-        <TouchableOpacity onPress={props.onPress}
-            style={[styles.container,
-            {
-                opacity: props.isUnlocked ? 1 : 0.5,
-                elevation: props.isUnlocked ? 10 : 0,
-                transform: [{ scale: props.bumping ? scaleAnim : 1 }]
-            }]}
-        >
-            <View style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 10,
-                zIndex: 1,
-            }}>
-                <Animated.Image
-                    source={
-                        props.isUnlocked ?
-                            { uri: props.chapter.base64Icon }
-                            :
-                            functions.getIconSource('lock')
-                    }
-                    style={{
-                        width: 80,
-                        height: 80,
-                        transform: props.isUnlocked ? [{ rotate: spin }] : [],
-                    }} />
-                <Title1 title={props.chapter.labelFR} color={Colors.main} />
-                {props.isUnlocked &&
-                    <Title2 title={`${props.percentage * 100}%`} color={Colors.white} />
-                }
-            </View>
+        <View style={[
+            styles.wrapper,
+        ]}>
+            <Animated.View style={[{ transform: [{ scale: pressScaleValue }] }]}>
+                <Pressable
+                    onPress={props.onPress}
+                    onPressIn={handlePressIn}
+                    onPressOut={handlePressOut}
+                    disabled={!props.isUnlocked}
+                    style={[styles.touchableArea]}
+                >
+                    {/* TITRE */}
+                    {!props.isRight && <View style={styles.textContainer}>
+                        <Title1
+                            title={props.chapter.labelFR}
+                            color={Colors.white}
+                            style={styles.titleText}
+                        />
+                    </View>}
+                    {/* CERCLE PRINCIPAL */}
+                    <Animated.View style={[
+                        styles.circleContainer,
+                        {
+                            transform: [{ scale: scaleAnim }], // L'animation de scale s'applique ici
+                            borderColor: props.bumping ? Colors.white : Colors.darkGrey,
+                            borderWidth: props.bumping ? 4 : 2,
+                            backgroundColor: props.isUnlocked ? Colors.black : Colors.darkGrey,
+                        }
+                    ]}>
+                        {/* ICONE */}
+                        <Animated.Image
+                            source={props.isUnlocked ? { uri: props.chapter.base64Icon } : functions.getIconSource('lock')}
+                            style={{
+                                width: 50,
+                                height: 50,
+                                transform: props.bumping ? [{ rotate: spin }] : [],
+                            }}
+                        />
+                    </Animated.View>
 
-            <Progress.Circle
-                size={250}
-                progress={props.isUnlocked ? props.percentage : 0}
-                color={Colors.white}
-                thickness={8}
-                borderWidth={0}
-                style={{
-                    position: 'absolute',
-                }}
-            />
-        </TouchableOpacity>
+                    {/* TITRE */}
+                    {props.isRight && <View style={styles.textContainer}>
+                        <Title1
+                            title={props.chapter.labelFR}
+                            color={Colors.white}
+                            style={styles.titleText}
+                        />
+                    </View>}
+                </Pressable>
+            </Animated.View>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-
-    container: {
+    wrapper: {
+        alignItems: 'center',
+        marginVertical: 5,
+        zIndex: 10,
+    },
+    touchableArea: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: Colors.black,
-        width: 250,
-        height: 250,
-        padding: 20,
-        gap: 10,
-        borderRadius: 200,
-        shadowColor: "#000000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.17,
-        shadowRadius: 3.05,
+        flexDirection: 'row',
+        gap: 20,
     },
+    circleContainer: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        borderCurve: 'continuous',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // Ombres
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 4.65,
+        elevation: 8,
+    },
+    textContainer: {
+        alignItems: 'center',
+        width: '50%',
+    },
+    titleText: {
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: { width: -1, height: 1 },
+        textShadowRadius: 10
+    }
 })

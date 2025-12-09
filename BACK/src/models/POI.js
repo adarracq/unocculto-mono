@@ -6,7 +6,9 @@ const POISchema = mongoose.Schema({
     labelEN: { type: String, required: true },
     location: {
         type: { type: String, enum: ['Point'], required: true, default: 'Point' },
-        coordinates: { type: [Number], required: true }
+        coordinates: { type: [Number], required: true },
+        labelFR: { type: String, required: false },
+        labelEN: { type: String, required: false }
     },
     dateStart: { type: Number, required: true },
     dateEnd: { type: Number, required: false },

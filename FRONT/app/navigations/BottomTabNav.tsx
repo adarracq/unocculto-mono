@@ -23,9 +23,7 @@ export default function BottomTabNav() {
     const { notifications, updateNotification, resetNotification } = useNotifications();
 
     const noTabBarScreens = [
-        'EditPersonalData',
-        'EditProData',
-        'EditPlan',
+        'Chapter',
     ];
     return (
         <Tab.Navigator
@@ -109,7 +107,7 @@ const styles = StyleSheet.create({
     tabBarStyle: {
         height: 70,
         backgroundColor: Colors.black,
-        borderTopWidth: 2,
+        borderTopWidth: 0,
         borderTopColor: Colors.black,
     },
 })

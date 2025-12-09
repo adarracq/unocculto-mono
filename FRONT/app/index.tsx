@@ -42,10 +42,14 @@ SplashScreen.setOptions({
 export default function App() {
   // Load fonts and hide splash screen
   const [fontsLoaded, fontsError] = Font.useFonts({
-    'title-regular': require('./assets/fonts/lexend_deca_regular.ttf'),
-    'title-bold': require('./assets/fonts/lexend_deca_bold.ttf'),
-    'title-medium': require('./assets/fonts/lexend_deca_medium.ttf'),
+    'title-regular': require('./assets/fonts/SpaceGrotesk-regular.ttf'),
+    'title-bold': require('./assets/fonts/SpaceGrotesk-bold.ttf'),
+    'title-medium': require('./assets/fonts/SpaceGrotesk-medium.ttf'),
     'title-italic': require('./assets/fonts/sf_pro_italic.otf'),
+    'title-regular2': require('./assets/fonts/lexend_deca_regular.ttf'),
+    'title-bold2': require('./assets/fonts/lexend_deca_bold.ttf'),
+    'title-medium2': require('./assets/fonts/lexend_deca_medium.ttf'),
+    'title-italic2': require('./assets/fonts/sf_pro_italic.otf'),
     'text-regular': require('./assets/fonts/sf_pro_regular.otf'),
     'text-bold': require('./assets/fonts/sf_pro_bold.otf'),
     'text-italic': require('./assets/fonts/sf_pro_italic.otf'),

@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
-        borderRadius: 16
+        borderRadius: 16,
+        borderCurve: 'continuous',
     },
     logo: {
         width: 50,

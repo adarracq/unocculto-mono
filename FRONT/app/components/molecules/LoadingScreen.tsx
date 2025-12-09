@@ -1,4 +1,3 @@
-import Colors from '@/app/constants/Colors';
 import LottieView from 'lottie-react-native';
 import React from 'react';
 import { View } from 'react-native';
@@ -16,7 +15,7 @@ export default function LoadingScreen() {
             bottom: 0,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: Colors.main,
+
 
             zIndex: 999
         }}>

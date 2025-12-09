@@ -56,6 +56,7 @@ export default function InputField(props: InputFieldProps) {
                     borderColor: props.errorText ? Colors.red : isFocused ? Colors.main : Colors.lightGrey,
                     borderWidth: isFocused || props.errorText ? 2 : 1,
                     borderRadius: 16,
+                    borderCurve: 'continuous',
                     paddingHorizontal: 16,
                     paddingVertical: 12,
                     backgroundColor: Colors.white,

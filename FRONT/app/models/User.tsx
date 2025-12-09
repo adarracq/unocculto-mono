@@ -6,11 +6,11 @@ export default class User {
     avatarID: number | null;
     unlockedAvatarIDs: number[] | [];
     themes: string[] | [];
-    gems: number | null;
-    points: number | null;
+    lifes: number;
+    coins: number;
     dayStreak: number | null;
     lastCourseDate: Date | null;
-    POIsCompleted: string[] | [];
+    chaptersCompleted: string[];
 
     constructor(email: string) {
         this.email = email;
@@ -20,10 +20,10 @@ export default class User {
         this.unlockedAvatarIDs = [0];
         this.expoPushToken = null;
         this.themes = [];
-        this.gems = 0;
-        this.points = 0;
+        this.lifes = 0;
+        this.coins = 0;
         this.dayStreak = 0;
         this.lastCourseDate = null;
-        this.POIsCompleted = [];
+        this.chaptersCompleted = [];
     }
 }

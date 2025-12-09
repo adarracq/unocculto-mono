@@ -6,6 +6,8 @@ export default class POI {
     location: {
         type: 'Point';
         coordinates: [number, number];
+        labelFR: string;
+        labelEN: string;
     };
     dateStart: number;
     dateEnd: number | null; // null means no end date
@@ -40,6 +42,8 @@ export default class POI {
         location: {
             type: 'Point';
             coordinates: [number, number];
+            labelFR: string;
+            labelEN: string;
         },
         dateStart: number,
         dateEnd: number | null,

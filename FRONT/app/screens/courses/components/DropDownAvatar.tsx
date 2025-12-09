@@ -35,6 +35,7 @@ export default function DropDownAvatar(props: DropDownProps) {
             <TouchableOpacity onPress={() => actionSheetRef.current?.show()}
                 style={{
                     borderRadius: 16,
+                    borderCurve: 'continuous',
                     backgroundColor: Colors.white,
                     padding: 8,
                 }}
@@ -73,8 +74,11 @@ export default function DropDownAvatar(props: DropDownProps) {
                                                 flex: 1,
                                                 padding: 10,
                                                 backgroundColor: props.selectedAvatarID === avatar.id ?
-                                                    Colors.main : !avatar.unlocked ? Colors.darkGrey : Colors.white,
+                                                    Colors.white : !avatar.unlocked ? Colors.darkGrey : Colors.veryLightGrey,
                                                 borderRadius: 16,
+                                                borderCurve: 'continuous',
+                                                borderWidth: props.selectedAvatarID === avatar.id ? 2 : 0,
+                                                borderColor: Colors.main,
                                                 justifyContent: 'center',
                                                 alignItems: 'center',
                                                 shadowColor: "#000000",
@@ -123,7 +127,7 @@ export default function DropDownAvatar(props: DropDownProps) {
                                                     }}>
                                                         <Image
                                                             source={functions.getIconSource('check')}
-                                                            style={{ width: 40, height: 40, tintColor: Colors.white }}
+                                                            style={{ width: 40, height: 40, tintColor: Colors.main }}
                                                         />
                                                     </View>
                                                 )

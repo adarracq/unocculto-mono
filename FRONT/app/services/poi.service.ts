@@ -5,12 +5,17 @@ const baseUrl = process.env.EXPO_PUBLIC_API_URL + '/api/poi';
 
 export const poiService = {
     getById,
+    getByChapter,
     create,
     createMany
 };
 
 function getById(id: string) {
     return fetchWrapper.get(`${baseUrl}/id/${id}`);
+}
+
+function getByChapter(chapterID: string) {
+    return fetchWrapper.get(`${baseUrl}/chapter/${chapterID}`);
 }
 
 function create(params: POI) {

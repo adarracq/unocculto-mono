@@ -5,6 +5,8 @@ export const functions = {
     getIconSource,
     getAvatarSource,
     convertImageToBase64,
+    dateToString,
+    simpleDateToString,
 }
 
 function getIconSource(name: string) {
@@ -21,6 +23,8 @@ function getIconSource(name: string) {
             return require('@/app/assets/icons/mail.png');
         case 'arrow-left':
             return require('@/app/assets/icons/arrow-left.png');
+        case 'arrow-right':
+            return require('@/app/assets/icons/arrow-right.png');
         case 'king':
             return require('@/app/assets/icons/king.png');
         case 'student':
@@ -41,6 +45,16 @@ function getIconSource(name: string) {
             return require('@/app/assets/icons/journey.png');
         case 'rocket':
             return require('@/app/assets/icons/rocket.png');
+        case 'globe':
+            return require('@/app/assets/icons/globe.png');
+        case 'paper_map':
+            return require('@/app/assets/icons/paper_map.png');
+        case 'close':
+            return require('@/app/assets/icons/close.png');
+        case 'lightning':
+            return require('@/app/assets/icons/lightning.png');
+        case 'coin':
+            return require('@/app/assets/icons/coin.png');
         default:
             return require('@/app/assets/icons/none.png');
     }
@@ -104,3 +118,75 @@ async function convertImageToBase64(imageSource: any) {
         return '';
     }
 };
+
+function dateToString(date: number) {
+    // exemple : -13800000000 -> Il y a 13,8 milliards d'années
+    //12000000 -> Il y a 12 millions d'années
+    //450000 -> Il y a 450 mille ans
+    //-2600 -> 2600 avant J.-C.
+    //724 -> 724 après J.-C.
+    // 20231224 -> 24 Décembre 2023
+    if (date < -1000000000) {
+        if (date % 1000000000 === 0) {
+            return `Il y a ${(-date / 1000000000).toFixed(0)} milliards d'années`;
+        }
+        return `Il y a ${(-date / 1000000000).toFixed(1)} milliards d'années`;
+    }
+    else if (date < -1000000) {
+        if (date % 1000000 === 0) {
+            return `Il y a ${(-date / 1000000).toFixed(0)} millions d'années`;
+        }
+        return `Il y a ${(-date / 1000000).toFixed(1)} millions d'années`;
+    }
+    else if (date < -1000) {
+        return `Il y a ${(-date / 1000).toFixed(0)} mille ans`;
+    }
+    else if (date < 0) {
+        return `${-date} avant J.-C.`;
+    }
+    else if (date < 10000) {
+        return `${date} après J.-C.`;
+    }
+    else {
+        const dateStr = date.toString();
+        const year = dateStr.slice(0, 4);
+        const month = dateStr.slice(4, 6);
+        const day = dateStr.slice(6, 8);
+        const monthNames = [
+            'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+            'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+        ];
+        return `${parseInt(day)} ${monthNames[parseInt(month) - 1]} ${year}`;
+    }
+}
+
+function simpleDateToString(date: number) {
+    // exemple : -13800000000 -> 13,8 Md 
+    //12000000 -> 12 M
+    //450000 -> 450 k
+    //-2600 -> 2600 av. J.-C.
+    //724 -> 724
+    // 20231224 -> 24/12/2023
+    if (date < -1000000000) {
+        return `${(-date / 1000000000).toFixed(1)} Md`;
+    }
+    else if (date < -1000000) {
+        return `${(-date / 1000000).toFixed(1)} M`;
+    }
+    else if (date < -1000) {
+        return `${(-date / 1000).toFixed(1)} k`;
+    }
+    else if (date < 0) {
+        return `${-date} av. J.-C.`;
+    }
+    else if (date < 10000) {
+        return `${date}`;
+    }
+    else {
+        const dateStr = date.toString();
+        const year = dateStr.slice(0, 4);
+        const month = dateStr.slice(4, 6);
+        const day = dateStr.slice(6, 8);
+        return `${day}/${month}/${year}`;
+    }
+}

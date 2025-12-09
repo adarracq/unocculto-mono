@@ -22,29 +22,23 @@ exports.getAll = async (req, res, next) => {
 
 exports.createTheme = async (req, res, next) => {
     try {
-        const { name, labelFR, labelEN, base64Icon } = req.body;
+        // first delete _id if any
+        delete req.body._id;
+        const newTheme = new Theme({ ...req.body });
 
-        const newTheme = new Theme({
-            name,
-            labelFR,
-            labelEN,
-            base64Icon
-        });
-        // If theme exists we replace it
-        const existingTheme = await Theme.findOne({ name });
+        const existingTheme = await Theme.findOne({ name: newTheme.name });
         if (existingTheme) {
-            existingTheme.labelFR = labelFR;
-            existingTheme.labelEN = labelEN;
-            existingTheme.base64Icon = base64Icon;
-            const updatedTheme = await existingTheme.save();
-            return res.status(200).json(updatedTheme);
+            const updatedTheme = await Theme.findOneAndUpdate(
+                { name: newTheme.name },
+                { ...req.body },
+                { new: true }
+            );
+            res.status(200).json(updatedTheme);
         }
         else {
-            // Otherwise we create a new one
             const savedTheme = await newTheme.save();
-            return res.status(201).json(savedTheme);
+            res.status(201).json(savedTheme);
         }
-
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Erreur serveur' });

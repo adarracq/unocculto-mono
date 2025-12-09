@@ -7,6 +7,7 @@ type Title1Props = {
     color?: any;
     style?: TextStyle;
     isLeft?: boolean;
+    isRight?: boolean;
 }
 
 export default function Title1(props: Title1Props) {
@@ -14,7 +15,7 @@ export default function Title1(props: Title1Props) {
         <Text style={[{
             color: props.color ? props.color : Colors.white,
             fontSize: 18,
-            textAlign: props.isLeft ? 'left' : 'center',
+            textAlign: props.isLeft ? 'left' : props.isRight ? 'right' : 'center',
             fontFamily: 'title-bold',
         }, props.style]}>{props.title}</Text>
     )

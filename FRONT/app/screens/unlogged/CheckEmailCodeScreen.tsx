@@ -4,6 +4,7 @@ import SmallText from '@/app/components/atoms/SmallText';
 import Title0 from '@/app/components/atoms/Title0';
 import InputField from '@/app/components/molecules/InputField';
 import LoadingScreen from '@/app/components/molecules/LoadingScreen';
+import ProgressBar from '@/app/components/molecules/ProgressBar';
 import Colors from '@/app/constants/Colors';
 import { UserContext } from '@/app/contexts/UserContext';
 import { useApi } from '@/app/hooks/useApi';
@@ -121,6 +122,7 @@ export default function CheckEmailCodeScreen({ navigation, route }: Props) {
             style={styles.container}>
             <BackArrow onPress={() => navigation.goBack()} />
             <View style={{ gap: 20 }}>
+                <ProgressBar progress={2} total={5} title="Verification" width={80} />
                 <View style={styles.mailContainer}>
                     <Image source={functions.getIconSource('mail')}
                         style={styles.mail}
@@ -168,6 +170,7 @@ const styles = StyleSheet.create({
         height: 60,
         backgroundColor: Colors.veryLightGrey,
         borderRadius: 16,
+        borderCurve: 'continuous',
         justifyContent: 'center',
         alignItems: 'center'
     },

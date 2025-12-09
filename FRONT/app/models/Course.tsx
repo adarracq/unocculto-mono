@@ -4,6 +4,8 @@ export default class Course {
     name: string;
     labelFR: string;
     labelEN: string;
+    descriptionFR: string;
+    descriptionEN: string;
     base64Icon: string;
 
     constructor(
@@ -11,6 +13,8 @@ export default class Course {
         name: string,
         labelFR: string,
         labelEN: string,
+        descriptionFR: string,
+        descriptionEN: string,
         base64Icon: string,
     ) {
         this._id = null;
@@ -18,6 +22,8 @@ export default class Course {
         this.name = name;
         this.labelFR = labelFR;
         this.labelEN = labelEN;
+        this.descriptionFR = descriptionFR;
+        this.descriptionEN = descriptionEN;
         this.base64Icon = base64Icon;
     }
 }

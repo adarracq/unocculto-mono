@@ -91,7 +91,7 @@ export default function ChoosePseudoScreen({ navigation, route }: Props) {
             style={styles.container}>
             <BackArrow onPress={() => navigation.goBack()} />
             <View style={{ gap: 24 }}>
-                <ProgressBar progress={2} total={4} title="E-mail" width={80} />
+                <ProgressBar progress={3} total={5} title="Pseudo" width={80} />
                 <Title0 title={'Choisissez un pseudo'} color={Colors.white} />
                 <InputField placeholder="Entrez votre pseudo"
                     value={pseudo}

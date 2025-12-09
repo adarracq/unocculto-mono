@@ -10,6 +10,8 @@ router.get('/:email', userCtrl.getUserByEmail);
 router.get('/id/:id', auth, userCtrl.getUserById);
 router.put('/', auth, userCtrl.updateUser);
 router.put('/expoPushToken', userCtrl.updateExpoPushToken);
+router.post('/chapter', auth, userCtrl.addCompletedChapter);
+router.post('/loseLife', auth, userCtrl.loseLife);
 router.get('/verifyPseudo/:pseudo', auth, userCtrl.verifyPseudo);
 router.delete('/:id', auth, userCtrl.deleteUser);
 

@@ -24,31 +24,23 @@ exports.getAll = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
     try {
-        const { number, name, labelFR, labelEN, base64Icon } = req.body;
+        // first delete _id if any
+        delete req.body._id;
+        const newCourse = new Course({ ...req.body });
 
-        const newCourse = new Course({
-            number,
-            name,
-            labelFR,
-            labelEN,
-            base64Icon
-        });
-        // If theme exists we replace it
-        const existingCourse = await Course.findOne({ name });
+        const existingCourse = await Course.findOne({ name: newCourse.name });
         if (existingCourse) {
-            existingCourse.number = number;
-            existingCourse.labelFR = labelFR;
-            existingCourse.labelEN = labelEN;
-            existingCourse.base64Icon = base64Icon;
-            const updatedCourse = await existingCourse.save();
-            return res.status(200).json(updatedCourse);
+            const updatedCourse = await Course.findOneAndUpdate(
+                { name: newCourse.name },
+                { ...req.body },
+                { new: true }
+            );
+            res.status(200).json(updatedCourse);
         }
         else {
-            // Otherwise we create a new one
             const savedCourse = await newCourse.save();
-            return res.status(201).json(savedCourse);
+            res.status(201).json(savedCourse);
         }
-
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Erreur serveur' });

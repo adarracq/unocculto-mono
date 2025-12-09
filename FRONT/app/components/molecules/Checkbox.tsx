@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 16,
     backgroundColor: Colors.white,
+    borderCurve: 'continuous',
   },
   containerSelected: {
     flexDirection: 'row',

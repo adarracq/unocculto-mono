@@ -1,89 +1,155 @@
+import BodyText from '@/app/components/atoms/BodyText';
 import Title1 from '@/app/components/atoms/Title1';
 import Colors from '@/app/constants/Colors';
 import Course from '@/app/models/Course';
-import { functions } from '@/app/utils/Functions';
 import React from 'react';
-import { Dimensions, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Animated, Dimensions, Image, Pressable, StyleSheet, View } from 'react-native';
 
 type Props = {
     course: Course;
-    isUnlocked: boolean;
     onPress: () => void;
     isRight?: boolean;
+    isLast?: boolean; // Pour ne pas afficher la ligne sur le dernier élément
 }
-export default function CourseOnList(props: Props) {
 
+const CARD_WIDTH = Dimensions.get('window').width * 0.75; // Un peu plus large pour lisibilité
 
+export default function CourseOnList({ course, onPress, isRight, isLast }: Props) {
+
+    const scaleValue = React.useRef(new Animated.Value(1)).current;
+    const handlePressIn = () => {
+        Animated.spring(scaleValue, {
+            toValue: 0.96,
+            useNativeDriver: true,
+            speed: 20,
+        }).start();
+    };
+
+    const handlePressOut = () => {
+        Animated.spring(scaleValue, {
+            toValue: 1,
+            useNativeDriver: true,
+            speed: 20,
+        }).start();
+    };
 
     return (
-        <View style={styles.mainContainer}>
-            <View style={styles.statsContainer}>
-            </View>
-            <TouchableOpacity onPress={props.onPress}
-                style={[styles.titleContainer,
-                {
-                    opacity: props.isUnlocked ? 1 : 0.5,
-                    elevation: props.isUnlocked ? 10 : 0,
-                    alignSelf: props.isRight ? 'flex-end' : 'flex-start',
-                }]}
-            >
-                <View style={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: 10,
-                    zIndex: 1,
-                }}>
-                    <Image
-                        source={
-                            props.isUnlocked ?
-                                { uri: props.course.base64Icon }
-                                :
-                                functions.getIconSource('lock')
+        <View style={styles.rowContainer}>
+            {/* Ligne de connexion (Optionnelle, pour effet parcours) */}
+            {!isLast && (
+                <View style={[
+                    styles.connectorLine,
+                    {
+                        left: isRight ? '70%' : '30%',
+
+                    }
+                ]} />
+            )}
+
+            <Animated.View style={[{ transform: [{ scale: scaleValue }] }]}>
+                <Pressable
+                    onPress={onPress}
+                    onPressIn={handlePressIn}
+                    onPressOut={handlePressOut}
+                    style={[
+                        styles.cardContainer,
+                        {
+                            alignSelf: isRight ? 'flex-end' : 'flex-start',
+                            // Petit décalage pour ne pas coller aux bords
+                            marginLeft: isRight ? 0 : 20,
+                            marginRight: isRight ? 20 : 0,
                         }
-                        style={{
-                            width: 50,
-                            height: 50,
-                            tintColor: Colors.main,
-                        }} />
-                    <Title1 title={props.course.labelFR} color={Colors.white} />
+                    ]}
+                >
+                    {/* En-tête de la carte : Icone + Titre */}
+                    <View style={styles.header}>
+                        {!isRight && <View style={{ flex: 1 }}>
+                            <Title1 title={course.labelFR} isRight />
+                        </View>}
+                        <View style={styles.iconWrapper}>
+                            <Image
+                                source={{ uri: course.base64Icon }}
+                                style={styles.icon}
+                            />
+                        </View>
+                        {isRight && <View style={{ flex: 1 }}>
+                            <Title1 title={course.labelFR} isLeft />
+                        </View>}
+                    </View>
 
-                    <Title1 title={props.isUnlocked ? "70%" : "0%"} color={Colors.main} />
-                </View>
-
-            </TouchableOpacity>
+                    {/* Description */}
+                    <View style={{ marginBottom: 12 }}>
+                        <BodyText
+                            color={Colors.lightGrey}
+                            text={course.descriptionFR}
+                            nbLines={3}
+                        />
+                    </View>
+                </Pressable>
+            </Animated.View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    mainContainer: {
-        flex: 1,
+    rowContainer: {
+        position: 'relative',
+        marginVertical: 10,
+        width: '100%',
     },
-    statsContainer: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+    // Le design de la carte
+    cardContainer: {
+        width: CARD_WIDTH,
+        backgroundColor: Colors.black,
+        borderRadius: 20,
+        borderCurve: 'continuous',
+        padding: 20,
+        // Ombre subtile et diffuse (Glow effect) pour le mode sombre
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 10,
+        elevation: 5,
+        borderWidth: 1,
+        borderColor: Colors.darkGrey
+    },
+    header: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
+        alignItems: 'center',
+        marginBottom: 12,
+        gap: 12,
     },
-    titleContainer: {
+    iconWrapper: {
+        width: 50,
+        height: 50,
+        borderRadius: 16,
+        borderCurve: 'continuous',
+        backgroundColor: Colors.white,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: Colors.black,
-        width: Dimensions.get('window').width * 0.6,
-        padding: 20,
-        gap: 10,
-        borderRadius: 16,
-        shadowColor: "#000000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.17,
-        shadowRadius: 3.05,
+    },
+    icon: {
+        width: 36,
+        height: 36,
+        resizeMode: 'contain',
+        tintColor: Colors.main,
+    },
+    statusBadge: {
+        alignSelf: 'flex-end',
+        backgroundColor: Colors.main,
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 20,
+        borderCurve: 'continuous',
+    },
+    // Styles pour la ligne de connexion
+    connectorLine: {
+        position: 'absolute',
+        width: 2,
+        height: 100, // Hauteur suffisante pour toucher le prochain item
+        backgroundColor: Colors.lightGrey,
+        left: '50%',
+        bottom: -50,
+        zIndex: -1,
     },
 })

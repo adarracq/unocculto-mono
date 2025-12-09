@@ -27,6 +27,8 @@ export const userService = {
     getById,
     update,
     testPseudoValidity,
+    addCompletedChapter,
+    loseLife,
     saveExpoPushToken,
     deleteAccountAndData
 };
@@ -53,6 +55,14 @@ function update(params: User) {
 
 function testPseudoValidity(pseudo: string) {
     return fetchWrapper.get(baseUrl + '/verifyPseudo/' + pseudo);
+}
+
+function addCompletedChapter(chapterId: string, nbQuestions: number) {
+    return fetchWrapper.post(baseUrl + '/chapter', { chapterId, nbQuestions });
+}
+
+function loseLife() {
+    return fetchWrapper.post(baseUrl + '/loseLife', {});
 }
 
 function saveExpoPushToken(params: ExpoPushTokenParams) {

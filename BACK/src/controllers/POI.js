@@ -9,6 +9,15 @@ exports.getByID = async (req, res, next) => {
     }
 };
 
+exports.getByChapterID = async (req, res, next) => {
+    try {
+        const pois = await POI.find({ chapterID: req.params.chapterID });
+        res.status(200).json(pois);
+    } catch (error) {
+        res.status(500).json({ error: 'Erreur serveur' });
+    }
+};
+
 exports.create = async (req, res, next) => {
     try {
         // first delete _id if any

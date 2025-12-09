@@ -87,7 +87,7 @@ export default function EmailInputScreen({ navigation, route }: Props) {
             colors={[Colors.mainDark, Colors.main, Colors.mainLight]} style={styles.container}>
             <BackArrow onPress={() => navigation.goBack()} />
             <View style={{ gap: 24 }}>
-                <ProgressBar progress={1} total={4} title="E-mail" width={80} />
+                <ProgressBar progress={1} total={5} title="E-mail" width={80} />
                 <Title0 title={'Quelle est votre adresse e-mail ?'} isLeft />
                 <InputField placeholder="pierre.dupont@gmail.com"
                     value={email}

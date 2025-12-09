@@ -8,7 +8,7 @@ export default {
                 labelEN: 'Universe Formation',
                 icon: require('@/app/assets/other/universe2.png'),
                 dateStart: -13800000000,
-                dateEnd: -4000000000,
+                dateEnd: -4600000000,
                 courseNB: 0,
             },
             {
@@ -17,7 +17,7 @@ export default {
                 labelFR: "La naissance de la Terre et de la Lune",
                 labelEN: 'Earth and Moon Formation',
                 icon: require('@/app/assets/other/pangea.png'),
-                dateStart: -4000000000,
+                dateStart: -4600000000,
                 dateEnd: -200000000,
                 courseNB: 0,
             },
