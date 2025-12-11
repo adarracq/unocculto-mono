@@ -1,3 +1,5 @@
+import ModernSquircleButton from '@/app/components/atoms/ButtonGradient';
+import SmallText from '@/app/components/atoms/SmallText';
 import LoadingScreen from '@/app/components/molecules/LoadingScreen';
 import TimelineConnector from '@/app/components/molecules/TimelineConnector';
 import Colors from '@/app/constants/Colors';
@@ -10,7 +12,7 @@ import { userService } from '@/app/services/user.service';
 import { useIsFocused } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useContext, useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import { showMessage } from 'react-native-flash-message';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NativeStackScreenProps } from 'react-native-screens/lib/typescript/native-stack/types';
@@ -95,6 +97,10 @@ export default function ChaptersListScreen({ navigation, route }: Props) {
                         paddingVertical: 40,
                     }}
                 >
+                    {chapters.length > 0 && <TimelineConnector
+                        date={chapters[0].dateStart}
+                        isNextRight
+                    />}
 
                     {chapters.map((chapter, index) => {
                         const isRight = index % 2 === 1;
@@ -106,6 +112,7 @@ export default function ChaptersListScreen({ navigation, route }: Props) {
                                 <ChapterOnList
                                     chapter={chapter}
                                     isRight={isRight}
+                                    //isUnlocked
                                     isUnlocked={index <= lastChapterIndex}
                                     bumping={index === lastChapterIndex}
                                     onPress={() => {
@@ -127,20 +134,49 @@ export default function ChaptersListScreen({ navigation, route }: Props) {
                                 />
 
                                 {/* LE CONNECTEUR VERS LE SUIVANT */}
-                                {!isLast && (
+                                {!isLast ?
                                     <TimelineConnector
                                         // On affiche la date de fin du chapitre actuel 
                                         // comme transition vers le suivant
                                         date={chapter.dateEnd}
                                         isNextRight={isRight} // Le prochain sera à l'opposé
+                                        withLine
                                     />
-                                )}
+                                    : <TimelineConnector
+                                        date={chapter.dateEnd}
+                                        isNextRight={isRight}
+                                    />
+                                }
                             </React.Fragment>
                         );
                     })}
 
                     {/* Petit espace final */}
                     <View style={{ height: 50 }} />
+                    {/* Si tout les chapitres sont complétés, on affiche un message de félicitations */}
+                    {
+                        lastChapterIndex >= chapters.length && <>
+                            <SmallText
+                                style={{
+                                    color: Colors.white,
+                                    textAlign: 'center',
+                                    marginTop: 20,
+                                    marginHorizontal: 20,
+                                }}
+                                text="Félicitations ! Vous avez complété tous les chapitres de ce cours."
+                                isItalic
+                            />
+                            <ModernSquircleButton
+                                title="Voir la carte complète"
+                                onPress={() => navigation.navigate('CourseMap', { course: route.params.course })}
+                                accentColor={Colors.main}
+                                icon={'journey'}
+                                iconColor={Colors.white}
+                                textColor={Colors.white}
+                                style={{ margin: 20, width: Dimensions.get('window').width - 40 }}
+                            />
+                        </>
+                    }
                 </ScrollView>
             }
         </LinearGradient >

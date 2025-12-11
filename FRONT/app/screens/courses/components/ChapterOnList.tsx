@@ -102,18 +102,32 @@ export default function ChapterOnList(props: Props) {
                             transform: [{ scale: scaleAnim }], // L'animation de scale s'applique ici
                             borderColor: props.bumping ? Colors.white : Colors.darkGrey,
                             borderWidth: props.bumping ? 4 : 2,
-                            backgroundColor: props.isUnlocked ? Colors.black : Colors.darkGrey,
+                            backgroundColor: props.bumping ? Colors.darkGrey : props.isUnlocked ? Colors.lightGrey : Colors.black,
                         }
                     ]}>
                         {/* ICONE */}
                         <Animated.Image
-                            source={props.isUnlocked ? { uri: props.chapter.base64Icon } : functions.getIconSource('lock')}
+                            source={{ uri: props.chapter.base64Icon }}
                             style={{
                                 width: 50,
                                 height: 50,
-                                transform: props.bumping ? [{ rotate: spin }] : [],
+                                //transform: props.bumping ? [{ rotate: spin }] : [],
                             }}
                         />
+                        {/* ICONE DE LOCK SI VERROUILLÉ */}
+                        {!props.isUnlocked && (
+                            <Animated.Image
+                                source={functions.getIconSource('lock')}
+                                style={{
+                                    width: 50,
+                                    height: 50,
+                                    position: 'absolute',
+                                    bottom: -10,
+                                    right: -10,
+
+                                }}
+                            />
+                        )}
                     </Animated.View>
 
                     {/* TITRE */}

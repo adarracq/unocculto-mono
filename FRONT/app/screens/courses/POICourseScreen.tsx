@@ -11,7 +11,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useContext, useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, View } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import LifeHeader from './components/LifeHeader';
 import POIHeader from './components/POIHeader';
@@ -76,6 +76,7 @@ export default function POICourseScreen({ navigation, route }: Props) {
                         <ScrollView horizontal contentContainerStyle={styles.themeRow}>
                             {activeThemes.map(t => (
                                 <View key={t._id} style={[styles.themeBadge, { backgroundColor: Colors.main }]}>
+                                    <Image source={{ uri: t.base64Icon }} style={{ width: 16, height: 16 }} />
                                     <SmallText style={styles.themeText} text={t.labelFR} isBold />
                                 </View>
                             ))}
@@ -155,7 +156,15 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start'
     },
     themeRow: { flexDirection: 'row', gap: 8 },
-    themeBadge: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 20, borderCurve: 'continuous', },
+    themeBadge: {
+        paddingHorizontal: 10,
+        paddingVertical: 6,
+        borderRadius: 20,
+        borderCurve: 'continuous',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 6,
+    },
     themeText: {
         color: Colors.white,
         textTransform: 'uppercase'
@@ -177,6 +186,7 @@ const styles = StyleSheet.create({
     },
     titles: {
         fontFamily: 'title-medium',
+        lineHeight: 34,
         color: Colors.white,
         marginTop: 20,
         marginBottom: 10

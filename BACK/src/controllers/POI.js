@@ -18,6 +18,15 @@ exports.getByChapterID = async (req, res, next) => {
     }
 };
 
+exports.getByCourseID = async (req, res, next) => {
+    try {
+        const pois = await POI.find({ courseID: req.params.courseID });
+        res.status(200).json(pois);
+    } catch (error) {
+        res.status(500).json({ error: 'Erreur serveur' });
+    }
+};
+
 exports.create = async (req, res, next) => {
     try {
         // first delete _id if any
@@ -52,3 +61,13 @@ exports.createMany = async (req, res, next) => {
         res.status(500).json({ error: 'Erreur serveur' });
     }
 }
+
+exports.deleteAllPOIs = async (req, res, next) => {
+    try {
+        const result = await POI.deleteMany({});
+        res.status(200).json({ message: `Deleted ${result.deletedCount} POIs.` });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erreur serveur' });
+    }
+};

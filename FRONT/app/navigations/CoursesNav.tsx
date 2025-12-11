@@ -6,6 +6,7 @@ import POI from '../models/POI';
 import User from '../models/User';
 import ChapterScreen from '../screens/courses/ChapterScreen';
 import ChaptersListScreen from '../screens/courses/ChaptersListScreen';
+import CourseMapScreen from '../screens/courses/CourseMapScreen';
 import CoursesHomeScreen from '../screens/courses/CoursesHomeScreen';
 import CoursesListScreen from '../screens/courses/CoursesListScreen';
 import DEV from '../screens/courses/DEV';
@@ -17,7 +18,8 @@ export type CoursesNavParams = {
     ChaptersList: { course: Course, user: User };
     Chapter: { chapter: Chapter };
     Dev: undefined;
-    POICourse: { poi: POI, chapter: Chapter, onPOICompleted?: (poiId: string, nbGoodAnswers: number) => void };
+    POICourse: { poi: POI, onPOICompleted?: (poiId: string, nbGoodAnswers: number) => void };
+    CourseMap: { course: Course };
 };
 
 const Stack = createStackNavigator<CoursesNavParams>();
@@ -32,6 +34,7 @@ export default function CoursesNav() {
             <Stack.Screen name="Chapter" component={ChapterScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Dev" component={DEV} options={{ headerShown: false }} />
             <Stack.Screen name="POICourse" component={POICourseScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="CourseMap" component={CourseMapScreen} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 

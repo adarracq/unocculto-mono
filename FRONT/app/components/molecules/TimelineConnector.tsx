@@ -17,12 +17,13 @@ export const Layout = {
 type Props = {
     date: number;
     isNextRight: boolean;
+    withLine?: boolean;
 }
 
 const CONNECTOR_HEIGHT = 120; // On augmente la hauteur pour qu'il y ait de la place
 const OVERLAP = -30; // On fait remonter le connecteur SOUS l'élément précédent
 
-export default function TimelineConnector({ date, isNextRight }: Props) {
+export default function TimelineConnector({ date, isNextRight, withLine }: Props) {
     const { width } = Dimensions.get('window');
 
     // Si prochain à droite : Départ Gauche -> Arrivée Droite
@@ -32,7 +33,7 @@ export default function TimelineConnector({ date, isNextRight }: Props) {
     return (
         <View style={styles.container}>
             {/* Calque SVG */}
-            <View style={StyleSheet.absoluteFill}>
+            {withLine && <View style={StyleSheet.absoluteFill}>
                 <Svg height="100%" width={width}>
                     {/* Ligne 1 : Haut vers Centre */}
                     <Line
@@ -55,7 +56,7 @@ export default function TimelineConnector({ date, isNextRight }: Props) {
                         strokeDasharray="8, 8"
                     />
                 </Svg>
-            </View>
+            </View>}
 
             {/* Badge Date */}
             <View style={styles.dateBadge}>

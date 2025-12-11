@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const EntitySnapshotSchema = mongoose.Schema({
     entityId: { type: mongoose.Schema.Types.ObjectId, ref: 'Entity', required: true },
+    entityName: { type: String, required: true },
     year: { type: Number, required: true, index: true },
     geometry: {
         type: {

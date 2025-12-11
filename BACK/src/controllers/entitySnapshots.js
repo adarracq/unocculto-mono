@@ -16,3 +16,45 @@ exports.getSnapshotsByYear = async (req, res, next) => {
         res.status(500).json({ error: 'Erreur serveur' });
     }
 };
+
+exports.getAll = async (req, res, next) => {
+    try {
+        const snapshots = await EntitySnapshot.find()
+            .populate('entityId', 'name primaryColor type');
+
+        res.status(200).json(snapshots);
+    } catch (error) {
+        res.status(500).json({ error: 'Erreur serveur' });
+    }
+}
+
+exports.create = async (req, res, next) => {
+    try {
+        // first delete _id if any
+        delete req.body._id;
+        const newSnapshot = new EntitySnapshot({ ...req.body });
+
+        const existingSnapshot = await EntitySnapshot.findOne({
+            entityId: newSnapshot.entityId,
+            year: newSnapshot.year
+        });
+        if (existingSnapshot) {
+            const updatedSnapshot = await EntitySnapshot.findOneAndUpdate(
+                {
+                    entityId: newSnapshot.entityId,
+                    year: newSnapshot.year
+                },
+                { ...req.body },
+                { new: true }
+            );
+            res.status(200).json(updatedSnapshot);
+        }
+        else {
+            const savedSnapshot = await newSnapshot.save();
+            res.status(201).json(savedSnapshot);
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erreur serveur' });
+    }
+};

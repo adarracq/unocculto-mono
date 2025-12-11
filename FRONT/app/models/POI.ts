@@ -14,6 +14,7 @@ export default class POI {
     chapterID: string;
     courseID: string;
     entityID: string | null;
+    entityName: string | null;
     themes: string[];
 
     content: {
@@ -50,6 +51,7 @@ export default class POI {
         chapterID: string,
         courseID: string,
         entityID: string | null,
+        entityName: string | null,
         themes: string[],
         content: {
             intro: string
@@ -78,6 +80,7 @@ export default class POI {
         this.chapterID = chapterID;
         this.courseID = courseID;
         this.entityID = entityID;
+        this.entityName = entityName;
         this.themes = themes;
         this.content = content;
         this.quiz = quiz;

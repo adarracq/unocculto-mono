@@ -174,7 +174,7 @@ export default function MapChapter0(props: Props) {
             {/* --- MESSAGE DE RÉUSSITE --- */}
             {props.isChapterCompleted && (
                 <View style={styles.successContainer}>
-                    <Title1 title=" Chapitre terminé !" color={Colors.white} />
+                    <Title1 title="Chapitre terminé !" color={Colors.white} />
                     <Button
                         title="Chapitre suivant"
                         backgroundColor={Colors.main}

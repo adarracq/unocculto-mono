@@ -40,8 +40,10 @@ exports.create = async (req, res, next) => {
         delete req.body._id;
         const newChapter = new Chapter({ ...req.body });
 
-        const existingChapter = await Chapter.findOne({ name: newChapter.name });
+        const existingChapter = await Chapter.findOne({ number: newChapter.number, courseNB: newChapter.courseNB });
         if (existingChapter) {
+
+            console.log('Chapter already exists, updating it instead.');
             const updatedChapter = await Chapter.findOneAndUpdate(
                 { name: newChapter.name },
                 { ...req.body },
@@ -143,5 +145,15 @@ exports.getChapterStats = async (req, res, next) => {
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Erreur lors du calcul des statistiques' });
+    }
+};
+
+exports.deleteAllChapters = async (req, res, next) => {
+    try {
+        const result = await Chapter.deleteMany({});
+        res.status(200).json({ message: `Deleted ${result.deletedCount} chapters.` });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erreur serveur' });
     }
 };

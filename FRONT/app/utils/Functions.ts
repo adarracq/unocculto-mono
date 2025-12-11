@@ -139,13 +139,16 @@ function dateToString(date: number) {
         return `Il y a ${(-date / 1000000).toFixed(1)} millions d'années`;
     }
     else if (date < -1000) {
-        return `Il y a ${(-date / 1000).toFixed(0)} mille ans`;
+        return `Il y a ${(-date / 1000).toFixed(0)} 000 ans`;
     }
     else if (date < 0) {
         return `${-date} avant J.-C.`;
     }
-    else if (date < 10000) {
+    else if (date < 1000) {
         return `${date} après J.-C.`;
+    }
+    else if (date < 3000) {
+        return `${date}`;
     }
     else {
         const dateStr = date.toString();
@@ -168,12 +171,21 @@ function simpleDateToString(date: number) {
     //724 -> 724
     // 20231224 -> 24/12/2023
     if (date < -1000000000) {
+        if (date % 1000000000 === 0) {
+            return `${(-date / 1000000000).toFixed(0)} Md`;
+        }
         return `${(-date / 1000000000).toFixed(1)} Md`;
     }
     else if (date < -1000000) {
+        if (date % 1000000 === 0) {
+            return `${(-date / 1000000).toFixed(0)} M`;
+        }
         return `${(-date / 1000000).toFixed(1)} M`;
     }
     else if (date < -1000) {
+        if (date % 1000 === 0) {
+            return `${(-date / 1000).toFixed(0)} k`;
+        }
         return `${(-date / 1000).toFixed(1)} k`;
     }
     else if (date < 0) {

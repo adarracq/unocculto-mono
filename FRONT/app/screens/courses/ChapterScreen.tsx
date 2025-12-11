@@ -1,4 +1,3 @@
-import MyMap from '@/app/components/organisms/MyMap';
 import Colors from '@/app/constants/Colors';
 import { UserContext } from '@/app/contexts/UserContext';
 import { useApi } from '@/app/hooks/useApi';
@@ -16,6 +15,8 @@ import { NativeStackScreenProps } from 'react-native-screens/lib/typescript/nati
 import ChapterHeader from './components/ChapterHeader';
 import MapChapter0 from './components/MapChapter0';
 import MapChapter1 from './components/MapChapter1';
+import MapChapter2And3 from './components/MapChapter2And3';
+import MapChapters from './components/MapChapters';
 
 type Props = NativeStackScreenProps<CoursesNavParams, 'Chapter'>;
 
@@ -157,7 +158,6 @@ export default function ChapterScreen({ navigation, route }: Props) {
         }
         navigation.navigate('POICourse', {
             poi,
-            chapter: route.params.chapter,
             onPOICompleted: handlePOICompleted,
         })
     };
@@ -175,7 +175,7 @@ export default function ChapterScreen({ navigation, route }: Props) {
 
     return (
         <LinearGradient
-            colors={[Colors.mainDark, Colors.main, Colors.mainLight]}
+            colors={[Colors.black, Colors.realBlack]}
             style={styles.container}>
             <ChapterHeader
                 currentIndex={selectedPOIIndex}
@@ -202,10 +202,25 @@ export default function ChapterScreen({ navigation, route }: Props) {
                             onSelectPOI={handleSelectPOI}
                         />
                         :
-                        <MyMap
-                            pois={pois}
-                            currentIndex={currentPOIIndex}
-                        />
+                        // les autres chapitres du cours 0
+                        route.params.chapter.courseNB == 0 ?
+                            <MapChapter2And3
+                                pois={pois}
+                                currentIndex={currentPOIIndex}
+                                isChapterCompleted={allPOIsCompleted || isChapterCompleted}
+                                onNavigateToCourse={handleNavigateToCourse}
+                                onChapterCompleted={handleChapterCompleted}
+                                onSelectPOI={handleSelectPOI}
+                            />
+                            :
+                            <MapChapters
+                                pois={pois}
+                                currentIndex={currentPOIIndex}
+                                isChapterCompleted={allPOIsCompleted || isChapterCompleted}
+                                onNavigateToCourse={handleNavigateToCourse}
+                                onChapterCompleted={handleChapterCompleted}
+                                onSelectPOI={handleSelectPOI}
+                            />
             }
         </LinearGradient >
     )

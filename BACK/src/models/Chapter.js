@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const chapterSchema = mongoose.Schema({
-    number: { type: Number, required: true, unique: true },
+    number: { type: Number, required: true },
     name: { type: String, required: true, unique: true },
     labelFR: { type: String, required: true },
     labelEN: { type: String, required: true },

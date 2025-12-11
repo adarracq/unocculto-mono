@@ -7,13 +7,14 @@ const rateLimit = require('express-rate-limit');
 const app = express();
 
 
-const entitySnapshotRoutes = require('./routes/entitySnapshots');
 const userRoutes = require('./routes/user');
 const entityRoutes = require('./routes/entity');
 const POIroutes = require('./routes/POI');
 const CourseRoutes = require('./routes/course');
 const ChapterRoutes = require('./routes/chapter');
 const ThemeRoutes = require('./routes/theme');
+const EntityRoutes = require('./routes/entity');
+const EntitySnapshotsRoutes = require('./routes/entitySnapshots');
 
 mongoose.connect(process.env.MONGO_URI,
     {
@@ -48,13 +49,12 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/api/entity-snapshots', entitySnapshotRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/entity', entityRoutes);
 app.use('/api/poi', POIroutes);
 app.use('/api/course', CourseRoutes);
 app.use('/api/chapter', ChapterRoutes);
 app.use('/api/theme', ThemeRoutes);
-
-
+app.use('/api/entity', EntityRoutes);
+app.use('/api/entitySnapshots', EntitySnapshotsRoutes);
 module.exports = app;

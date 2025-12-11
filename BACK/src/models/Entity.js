@@ -1,26 +1,18 @@
 const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 
-const EntitySchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true
-    },
-    type: {
-        type: String,
-        enum: ['EMPIRE', 'TRIBE', 'KINGDOM', 'REPUBLIC', 'CULTURE'],
-        default: 'EMPIRE'
-    },
-    primaryColor: {
-        type: String,
-        required: true,
-        default: '#CCCCCC'
-    },
-    icon: { type: String },
-    wikiUrl: { type: String },
-}, {
-    timestamps: true
+const entitySchema = mongoose.Schema({
+    name: { type: String, required: true, unique: true },
+    labelFR: { type: String, required: true },
+    labelEN: { type: String, required: true },
+    descriptionMarkDownFR: { type: String, required: true },
+    descriptionMarkDownEN: { type: String, required: true },
+    dateStart: { type: Number, required: true },
+    dateEnd: { type: Number, required: true },
+    availableSnapshots: { type: [Number], required: true },
+    type: { type: String, required: true },
 });
 
-module.exports = mongoose.model('Entity', EntitySchema);
+entitySchema.plugin(uniqueValidator);
+
+module.exports = mongoose.model('Entity', entitySchema);

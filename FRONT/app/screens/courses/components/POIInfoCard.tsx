@@ -19,6 +19,7 @@ export default function POIInfoCard(props: Props) {
         <View style={styles.infoCard}>
             <View style={styles.cardHeader}>
                 <Title1
+                    style={{ maxWidth: '90%' }}
                     title={props.selectedPoi.labelFR}
                 />
 

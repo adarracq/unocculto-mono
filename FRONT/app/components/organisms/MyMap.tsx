@@ -21,8 +21,7 @@ export default function MyMap(props: Props) {
         <View style={styles.page}>
             <Mapbox.MapView
                 style={styles.map}
-                styleURL={'mapbox://styles/antoinecd/cmiog0v9w000a01r0aya571gu'}
-                //styleURL={'mapbox://styles/antoinecd/cmiojt5x2009r01sb4vad4c0i/draft'}
+                styleURL={'mapbox://styles/antoinecd/cmiyo08f7000m01s89z5b7y98'}
                 logoEnabled={false}
                 projection={isGlobe ? 'globe' : 'mercator'}
                 pitchEnabled={false}

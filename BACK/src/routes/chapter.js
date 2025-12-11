@@ -7,5 +7,6 @@ router.get('/', chapterCtrl.getAll);
 router.get('/course/:courseID', chapterCtrl.getByCourseID);
 router.post('/', chapterCtrl.create);
 router.get('/:chapterID/:userID', chapterCtrl.getChapterStats);
+//router.get('/delete/all/chapters', chapterCtrl.deleteAllChapters);
 
 module.exports = router;
