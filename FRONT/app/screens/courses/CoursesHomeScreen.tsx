@@ -98,7 +98,7 @@ export default function CoursesHomeScreen({ navigation, route }: Props) {
                 />
                 <ButtonGradient
                     title="Exploration libre"
-                    onPress={() => navigation.navigate('CoursesList', { user: userApi.data! })}
+                    onPress={() => navigation.navigate('FreeExplo', { user: userApi.data! })}
                     accentColor={Colors.lightGrey}
                     //color2={Colors.black}
                     icon={'rocket'}

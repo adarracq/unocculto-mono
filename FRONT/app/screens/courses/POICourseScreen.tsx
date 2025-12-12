@@ -2,15 +2,13 @@ import BodyText from '@/app/components/atoms/BodyText';
 import SmallText from '@/app/components/atoms/SmallText';
 import Colors from '@/app/constants/Colors';
 import { UserContext } from '@/app/contexts/UserContext';
-import { useApi } from '@/app/hooks/useApi';
 import Theme from '@/app/models/Theme';
 import { CoursesNavParams } from '@/app/navigations/CoursesNav';
-import { themeService } from '@/app/services/theme.service';
 import { functions } from '@/app/utils/Functions';
 import { Ionicons } from '@expo/vector-icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
 import Markdown from 'react-native-markdown-display';
 import LifeHeader from './components/LifeHeader';
@@ -26,11 +24,6 @@ export default function POICourseScreen({ navigation, route }: Props) {
     const [themes, setThemes] = useState<Theme[]>([]);
     const [userContext, setUserContext] = useContext(UserContext);
 
-    const { execute: getThemes, loading: loadingThemes } = useApi(
-        () => themeService.getAll(),
-        'SetThemesScreen - getThemes'
-    );
-
     const handleQuizComplete = async (nbGoodAnswers: number) => {
         // Marquer le POI comme terminé avec son ID
         if (onPOICompleted && poi._id) {
@@ -40,22 +33,15 @@ export default function POICourseScreen({ navigation, route }: Props) {
         navigation.goBack();
     }
 
-    useEffect(() => {
-        async function fetchData() {
-            const result = await getThemes();
-            if (result) setThemes(result);
-        }
-        fetchData();
-    }, []);
-
     // Filtrer les thèmes du POI
     const activeThemes = themes.filter(t => poi.themes.includes(t._id!));
 
 
     return (
         <View style={styles.container}>
-
-            <LifeHeader user={userContext} />
+            {!route.params.isFreeExplo &&
+                <LifeHeader user={userContext} />
+            }
 
             <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
 

@@ -9,7 +9,7 @@ exports.getSnapshotsByYear = async (req, res, next) => {
         // On cherche tous les snapshots de cette année
         // .populate('entityId') est MAGIQUE : il va remplacer l'ID par l'objet Entity complet (avec le nom et la couleur !)
         const snapshots = await EntitySnapshot.find({ year: year })
-            .populate('entityId', 'name primaryColor type');
+            .populate('entityId', 'name labelFR labelEN descriptionMarkDownFR descriptionMarkDownEN dateStart dateEnd type');
 
         res.status(200).json(snapshots);
     } catch (error) {
@@ -20,7 +20,7 @@ exports.getSnapshotsByYear = async (req, res, next) => {
 exports.getAll = async (req, res, next) => {
     try {
         const snapshots = await EntitySnapshot.find()
-            .populate('entityId', 'name primaryColor type');
+            .populate('entityId', 'name labelFR labelEN descriptionMarkDownFR descriptionMarkDownEN dateStart dateEnd type');
 
         res.status(200).json(snapshots);
     } catch (error) {

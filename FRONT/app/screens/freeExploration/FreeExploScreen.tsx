@@ -1,20 +1,29 @@
 import Colors from '@/app/constants/Colors';
 import { CoursesContext } from '@/app/contexts/CoursesContext';
+import { useApi } from '@/app/hooks/useApi';
 import Course from '@/app/models/Course';
 import { CoursesNavParams } from '@/app/navigations/CoursesNav';
+import { chapterService } from '@/app/services/chapter.service';
 import { LinearGradient } from 'expo-linear-gradient';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NativeStackScreenProps } from 'react-native-screens/lib/typescript/native-stack/types';
-import CourseOnList from './components/CourseOnList';
-import SmallProfileHeader from './components/SmallProfileHeader';
+import CourseOnList from '../courses/components/CourseOnList';
+import SmallProfileHeader from '../courses/components/SmallProfileHeader';
 
-type Props = NativeStackScreenProps<CoursesNavParams, 'CoursesList'>;
+type Props = NativeStackScreenProps<CoursesNavParams, 'FreeExplo'>;
 
-export default function CoursesListScreen({ navigation, route }: Props) {
+export default function FreeExploScreen({ navigation, route }: Props) {
 
     const [courses, setCourses] = useContext(CoursesContext);
+    const [openChapters, setOpenChapters] = useState<number>(-1);
+
+    const { execute: getChapters, loading: loadingChapters } = useApi(
+        (courseNB: number) => chapterService.getByCourseID(courses[courseNB]._id!),
+        'ChaptersListScreen - getChapters'
+    );
+
 
 
     return (
@@ -39,7 +48,7 @@ export default function CoursesListScreen({ navigation, route }: Props) {
                         isRight={index % 2 !== 0} // Alterne Gauche / Droite
                         isLast={index === courses.length - 1} // Pour cacher la ligne du dernier
                         onPress={() => {
-                            navigation.navigate('ChaptersList', {
+                            navigation.navigate('FreeExploChapters', {
                                 course: courseItem,
                                 user: route.params.user,
                             });

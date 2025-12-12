@@ -10,7 +10,6 @@ type Props = {
 }
 
 export default function LifeHeader(props: Props) {
-
     const scaleAnim = useRef(new Animated.Value(1)).current;
     // 1. On crée une ref pour savoir si c'est le premier rendu
     const isFirstRender = useRef(true);
@@ -35,7 +34,7 @@ export default function LifeHeader(props: Props) {
         ]).start();
     };
 
-    return (
+    return props.user && (
         <View style={styles.container}>
             <Animated.View style={[
                 styles.valueContainer,

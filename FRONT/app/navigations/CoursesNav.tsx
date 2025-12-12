@@ -11,14 +11,18 @@ import CoursesHomeScreen from '../screens/courses/CoursesHomeScreen';
 import CoursesListScreen from '../screens/courses/CoursesListScreen';
 import DEV from '../screens/courses/DEV';
 import POICourseScreen from '../screens/courses/POICourseScreen';
+import FreeExploChaptersScreen from '../screens/freeExploration/FreeExploChaptersScreen';
+import FreeExploScreen from '../screens/freeExploration/FreeExploScreen';
 
 export type CoursesNavParams = {
     Home: undefined;
+    FreeExplo: { user: User };
     CoursesList: { user: User };
     ChaptersList: { course: Course, user: User };
+    FreeExploChapters: { course: Course, user: User };
     Chapter: { chapter: Chapter };
     Dev: undefined;
-    POICourse: { poi: POI, onPOICompleted?: (poiId: string, nbGoodAnswers: number) => void };
+    POICourse: { poi: POI, isFreeExplo?: boolean, onPOICompleted?: (poiId: string, nbGoodAnswers: number) => void };
     CourseMap: { course: Course };
 };
 
@@ -30,6 +34,8 @@ export default function CoursesNav() {
         <Stack.Navigator initialRouteName={'Home'}>
             <Stack.Screen name="Home" component={CoursesHomeScreen} options={{ headerShown: false }} />
             <Stack.Screen name="CoursesList" component={CoursesListScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="FreeExplo" component={FreeExploScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="FreeExploChapters" component={FreeExploChaptersScreen} options={{ headerShown: false }} />
             <Stack.Screen name="ChaptersList" component={ChaptersListScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Chapter" component={ChapterScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Dev" component={DEV} options={{ headerShown: false }} />

@@ -26,13 +26,14 @@ export default function ProgressBarLvl(props: ProgressBarLvlProps) {
     // On utilise useMemo pour recalculer automatiquement dès que safeCoins change
     const progressData = useMemo(() => {
         let lvl = 1; // Niveau 1 par défaut
+        let label = "Débutant";
         let coinsCurrent = safeCoins;
         let coinsTotal = 1; // Évite division par zéro
 
         for (let i = 0; i < levels.length; i++) {
             if (safeCoins >= levels[i].coins) {
                 lvl = levels[i].lvl;
-
+                label = levels[i].labelFR;
                 // Calcul du prochain palier
                 const nextLevelCoins = (i + 1 < levels.length)
                     ? levels[i + 1].coins
@@ -45,7 +46,7 @@ export default function ProgressBarLvl(props: ProgressBarLvlProps) {
 
         if (coinsTotal === 0) coinsTotal = 1;
 
-        return { lvl, coinsCurrent, coinsTotal };
+        return { lvl, label, coinsCurrent, coinsTotal };
     }, [safeCoins]); // Se recalcule uniquement si les pièces changent
 
     // ANIMATION
@@ -78,7 +79,7 @@ export default function ProgressBarLvl(props: ProgressBarLvlProps) {
                 alignItems: 'flex-end'
             }}>
                 {/* Niveau */}
-                <Title1 title={'Niveau ' + progressData.lvl} color={Colors.main} />
+                <Title1 title={progressData.label} color={Colors.main} />
 
                 {/* Score Animé */}
                 <Animated.View style={{

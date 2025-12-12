@@ -10,10 +10,16 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Alert, Platform, StyleSheet, View } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
 import LoadingScreen from './components/molecules/LoadingScreen';
+import { CoursesContext } from './contexts/CoursesContext';
+import { CourseThemesContext } from './contexts/CourseThemesContext';
 import { NotificationsProvider } from './contexts/NotificationContext';
 import { UserContext } from './contexts/UserContext';
+import { useApi } from './hooks/useApi';
+import Course from './models/Course';
 import BottomTabNav from './navigations/BottomTabNav';
 import UnLoggedNav from './navigations/UnloggedNav';
+import { courseService } from './services/course.service';
+import { themeService } from './services/theme.service';
 import { userService } from './services/user.service';
 import AsyncStorageUser from './utils/AsyncStorageUser';
 import { ErrorBoundary } from './utils/ErrorBoundary';
@@ -183,6 +189,32 @@ export default function App() {
     //AsyncStorageUser.Logout();
   }, []);
 
+  // save themes
+  const [courseThemesContext, setCourseThemesContext] = useState([]);
+  const [coursesContext, setCoursesContext] = useState([]);
+
+  const { execute: getThemes, loading: loadingThemes } = useApi(
+    () => themeService.getAll(),
+    'index - getThemes'
+  );
+  const { execute: getCourses, loading: loadingCourses } = useApi(
+    () => courseService.getAll(),
+    'index - getCourses'
+  );
+  useEffect(() => {
+    async function fetchData() {
+      const themes = await getThemes();
+      const courses = await getCourses();
+      if (courses) { // order by course.number ascending
+        setCoursesContext(courses.sort((a: Course, b: Course) => a.number - b.number));
+      }
+      if (themes) {
+        setCourseThemesContext(themes);
+      }
+    }
+    fetchData();
+  }, []);
+
 
 
   useEffect(() => {
@@ -208,16 +240,22 @@ export default function App() {
           <NavigationContainer ref={navigationRef}>
             <UserContext.Provider
               value={[user, setUser]}>
-              <StatusBar hidden />
-              <View style={StyleSheet.absoluteFillObject} onLayout={onLayoutRootView}>
-                {
-                  userLoaded && user ?
-                    <BottomTabNav />
-                    :
-                    <UnLoggedNav />
-                }
-                <FlashMessage position="top" statusBarHeight={10} />
-              </View>
+              <CourseThemesContext.Provider
+                value={[courseThemesContext, setCourseThemesContext]}>
+                <CoursesContext.Provider
+                  value={[coursesContext, setCoursesContext]}>
+                  <StatusBar hidden />
+                  <View style={StyleSheet.absoluteFillObject} onLayout={onLayoutRootView}>
+                    {
+                      userLoaded && user ?
+                        <BottomTabNav />
+                        :
+                        <UnLoggedNav />
+                    }
+                    <FlashMessage position="top" statusBarHeight={10} />
+                  </View>
+                </CoursesContext.Provider>
+              </CourseThemesContext.Provider>
             </UserContext.Provider>
           </NavigationContainer>
         </NavigationIndependentTree>

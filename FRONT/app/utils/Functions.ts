@@ -55,6 +55,10 @@ function getIconSource(name: string) {
             return require('@/app/assets/icons/lightning.png');
         case 'coin':
             return require('@/app/assets/icons/coin.png');
+        case 'people':
+            return require('@/app/assets/icons/people.png');
+        case 'peoples':
+            return require('@/app/assets/icons/peoples.png');
         default:
             return require('@/app/assets/icons/none.png');
     }
@@ -172,21 +176,21 @@ function simpleDateToString(date: number) {
     // 20231224 -> 24/12/2023
     if (date < -1000000000) {
         if (date % 1000000000 === 0) {
-            return `${(-date / 1000000000).toFixed(0)} Md`;
+            return `${-(-date / 1000000000).toFixed(0)} Md`;
         }
-        return `${(-date / 1000000000).toFixed(1)} Md`;
+        return `${-(-date / 1000000000).toFixed(1)} Md`;
     }
     else if (date < -1000000) {
         if (date % 1000000 === 0) {
-            return `${(-date / 1000000).toFixed(0)} M`;
+            return `${-(-date / 1000000).toFixed(0)} M`;
         }
-        return `${(-date / 1000000).toFixed(1)} M`;
+        return `${-(-date / 1000000).toFixed(1)} M`;
     }
     else if (date < -1000) {
         if (date % 1000 === 0) {
-            return `${(-date / 1000).toFixed(0)} k`;
+            return `${-(-date / 1000).toFixed(0)} k`;
         }
-        return `${(-date / 1000).toFixed(1)} k`;
+        return `${-(-date / 1000).toFixed(1)} k`;
     }
     else if (date < 0) {
         return `${-date} av. J.-C.`;
